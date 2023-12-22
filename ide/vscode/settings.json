@@ -1,0 +1,42 @@
+{
+    "editor.inlineSuggest.enabled": true,
+    "workbench.colorTheme": "Atom One Dark",
+    "workbench.settings.openDefaultSettings": true,
+    "workbench.settings.useSplitJSON": true,
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    "[python]": {
+        "editor.formatOnType": true,
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+          "source.fixAll": "explicit",
+          "source.organizeImports": "explicit"
+        },
+          "editor.defaultFormatter": "charliermarsh.ruff"
+    },
+    "git.confirmSync": false,
+    "explorer.confirmDelete": false,
+    "workbench.settings.editor": "json",
+    "terminal.integrated.enableMultiLinePasteWarning": false,
+    "jupyter.interactiveWindow.creationMode": "perFile",
+    "terminal.external.osxExec": "iTerm.app",
+    "jupyter.askForKernelRestart": false,
+    "explorer.confirmDragAndDrop": false,
+    "githubPullRequests.createOnPublishBranch": "never",
+    "aws.suppressPrompts": {
+        "codeWhispererNewWelcomeMessage": true
+    },
+    "diffEditor.ignoreTrimWhitespace": false,
+    "redhat.telemetry.enabled": true,
+    "yaml.schemas": {
+          "https://squidfunk.github.io/mkdocs-material/schema.json": "mkdocs.yml"
+        },
+        "yaml.customTags": [ 
+          "!ENV scalar",
+          "!ENV sequence",
+          "tag:yaml.org,2002:python/name:material.extensions.emoji.to_svg",
+          "tag:yaml.org,2002:python/name:material.extensions.emoji.twemoji",
+          "tag:yaml.org,2002:python/name:pymdownx.superfences.fence_code_format"
+        ],
+        "githubPullRequests.pullBranch": "never",
+        "window.zoomLevel": -1
+}
