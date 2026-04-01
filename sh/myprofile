@@ -1,0 +1,33 @@
+# Update path
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/git/bin:$HOME/.bin:$HOME/.local/bin:$PATH"
+
+export EDITOR=nvim
+export GIT_EDITOR=nvim
+export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
+export CLICOLOR=1
+
+export PYTHONDONTWRITEBYTECODE=1
+export HOMEBREW_NO_AUTO_UPDATE=1
+
+# Python
+export PYTHONSTARTUP=~/.pythonstartup.py
+
+# Useful command for stripping whitespace
+remove_trailing_whitespace() {
+  find . -name $* -exec sed -i '' -e's/[[:space:]]*$//' {} \;
+}
+
+function clip {
+  [ -t 0 ] && pbpaste || pbcopy
+}
+
+function gif-it() {
+  ffmpeg -i "$1" -pix_fmt rgb24 -r 10 -f gif - | gifsicle --optimize=3 --delay=10 > "$1.gif"
+}
+
+function highlight-it {
+  pbpaste -Prefer txt | pygmentize -f rtf -O 'ensurenl=False,style=perldoc,fontface=Operator Mono Book,fontsize=84' -l "$1" | pbcopy
+}
+
+alias claude-yolo="claude --dangerously-skip-permissions"
+alias claude-update="cd ~/.claude/local && npm update @anthropic-ai/claude-code"

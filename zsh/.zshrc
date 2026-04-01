@@ -1,6 +1,8 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# echo "Running .zshrc"
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -8,7 +10,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME=""
+# ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -73,12 +76,19 @@ VSCODE=code
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-    git 
-    pyenv 
+    git
+    common-aliases
+    dotenv
     vscode
+    gitignore
     chruby
     ruby
-    gitignore
+    rust
+    zsh-completions
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+    gradle-completion
+    arxiv
     )
     
 
@@ -110,17 +120,19 @@ fi
 #
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
+
+# aliases
 alias ohmyzsh="code ~/.oh-my-zsh"
+# zsh
 alias zshconfig="code ~/.zshrc"
-alias pipu="python -m pip install --upgrade pip"
+alias reload='source ~/.zshrc'
 
-# Rye Package manager
-source "$HOME/.rye/env"
+# gitconfig
+alias gitconfig="code ~/.gitconfig"
+# starship
+alias starshipconfig="code ~/.config/starship.toml"
 
-# Ruby
-source /usr/local/opt/chruby/share/chruby/chruby.sh
-source /usr/local/opt/chruby/share/chruby/auto.sh
-chruby ruby-3.1.3
+alias ipaddr="ifconfig -l | xargs -n1 ipconfig getifaddr"
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
@@ -132,3 +144,60 @@ export NVM_DIR="$HOME/.nvm"
 if [ -f '/Users/scott_carvalho/projects/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/scott_carvalho/projects/google-cloud-sdk/path.zsh.inc'; fi
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/scott_carvalho/projects/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/scott_carvalho/projects/google-cloud-sdk/completion.zsh.inc'; fi
+
+# Created by `pipx` on 2024-01-06 00:40:08
+export PATH="$PATH:/Users/scott_carvalho/.local/bin"
+
+# starship
+eval "$(starship init zsh)"
+
+# bun
+export BUN_INSTALL="$HOME/Library/Application Support/reflex/bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# sqlite-utils completions
+eval "$(_SQLITE_UTILS_COMPLETE=zsh_source sqlite-utils)"
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/opt/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+# functions
+safariconvert() {
+  local bookid="$1"
+  if [[ -z "$bookid" ]]; then
+    echo "Usage: safariconvert <BOOK_ID>"
+    return 1
+  fi
+
+  safaribooks "$bookid"
+
+  local epub="${bookid}.epub"
+
+  # convert in place (overwrite)
+  ebooks-convert "$epub" "$epub"
+}
+
+. "$HOME/.cargo/env"
+
+# mise
+eval "$(~/.local/bin/mise activate zsh)"
+# echo 'eval "$(mise activate zsh)"'
+
+# android studio
+# export JAVA_HOME="/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home"
+# export ANDROID_HOME="$HOME/Library/Android/sdk"
+# export PATH="$PATH:$ANDROID_HOME/emulator"
+# export PATH="$PATH:$ANDROID_HOME/platform-tools"
+
+eval "$(ty generate-shell-completion zsh)"

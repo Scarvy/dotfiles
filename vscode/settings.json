@@ -1,0 +1,95 @@
+{
+  // Editor
+  "editor.rulers": [119],
+  "editor.inlineSuggest.enabled": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.unicodeHighlight.allowedLocales": {
+    "es": true
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+  },
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  // Window
+  "window.newWindowProfile": "Default",
+  // Workbench
+  "workbench.colorTheme": "Atom One Dark",
+  "workbench.settings.editor": "json",
+  "workbench.settings.openDefaultSettings": true,
+  "workbench.settings.useSplitJSON": true,
+  "workbench.startupEditor": "none",
+  "workbench.secondarySideBar.defaultVisibility": "hidden",
+  // Files
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmPasteNative": false,
+  // Terminal
+  "terminal.integrated.enableMultiLinePasteWarning": "auto",
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.external.osxExec": "iTerm.app",
+  // Language Specific Preferences
+  // Python
+  "[python]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "explicit",
+      "source.organizeImports": "explicit",
+    },
+    "diffEditor.ignoreTrimWhitespace": false,
+  },
+  "python.languageServer": "None", // Use Ty
+  "python.analysis.typeCheckingMode": "basic",
+  // Ruff
+  "ruff.configuration": "./pyproject.toml",
+  // JavaScript & TypeScript
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features",
+    "editor.tabSize": 2
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  // Rust
+  "[rust]": {
+    "editor.formatOnSave": true
+  },
+  "[markdown]": {
+    "diffEditor.ignoreTrimWhitespace": true
+  },
+  // JSON
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features",
+    "editor.tabSize": 2
+  },
+  // Git
+  "git.confirmSync": false,
+  "githubPullRequests.createOnPublishBranch": "never",
+  // Jupyter Notebook
+  "jupyter.interactiveWindow.creationMode": "perFile",
+  "jupyter.askForKernelRestart": false,
+  // GitHub
+  "githubPullRequests.pullBranch": "never",
+  // Makefile
+  "makefile.configureOnOpen": false,
+  "[github-actions-workflow]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "chat.viewSessions.orientation": "stacked",
+  "docker.extension.dockerEngineAvailabilityPrompt": false,
+  "window.confirmSaveUntitledWorkspace": false,
+  "scm.repositories.selectionMode": "single",
+  "github.copilot.enable": {
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  },
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "js/ts.updateImportsOnFileMove.enabled": "always",
+}

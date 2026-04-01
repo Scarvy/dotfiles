@@ -1,0 +1,12 @@
+[include]
+	path = .gitconfig.local
+[core]
+	autocrlf = input
+	excludesfile = /Users/scott_carvalho/projects/dotfiles/git/.gitignore_global
+[user]
+	name = Scott Carvalho
+	email = scottcarvalho71@gmail.com
+[push]
+	autosetupremote = true
+[branch]
+	sort = committerdate
