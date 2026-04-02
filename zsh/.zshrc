@@ -134,11 +134,6 @@ alias starshipconfig="code ~/.config/starship.toml"
 
 alias ipaddr="ifconfig -l | xargs -n1 ipconfig getifaddr"
 
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 # gcloud
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/scott_carvalho/projects/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/scott_carvalho/projects/google-cloud-sdk/path.zsh.inc'; fi
