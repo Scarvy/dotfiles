@@ -34,19 +34,10 @@ packages=(
     wget
     curl
     git
-    python3
-    nvm
+    mise
 )
 
 for package in "$packages[@]"
-  do brew_install $package
-done
-
-languages=(
-    ruby
-)
-
-for package in "$languages[@]"
   do brew_install $package
 done
 
@@ -54,7 +45,6 @@ done
 applications=(
     google-chrome
     iterm2
-    spotify
 )
 
 for application in "$applications[@]"
@@ -62,9 +52,7 @@ for application in "$applications[@]"
   do cask_install $application
 done
 
-# Install Node Version Manager (NVM)
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.26.1/install.sh | zsh
-
-# Install latest
-nvm install stable
-nvm alias default stable
+# Install language versions via mise
+mise use --global node@lts
+mise use --global python@latest
+mise use --global ruby@latest
